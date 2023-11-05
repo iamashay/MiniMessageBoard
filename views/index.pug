@@ -1,0 +1,74 @@
+html
+  head
+    title Message Display
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      form {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      label, input, button {
+        display: block;
+        margin-bottom: 10px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  body
+    h1 Mini Message Board
+    ul
+      each message in messageArr
+        li
+          strong= message.user
+          p= message.text
+          p
+            | Added on #{message.added.toLocaleString()}
+    form(action="/msg" method="POST")
+      label(for="user") User:
+      input(type="text" id="user" name="user" required)
+      label(for="text") Message:
+      input(type="text" id="text" name="text" required)
+      label(for="added") Added (Date and Time):
+      input(type="text" id="added" name="added" required)
+      button(type="submit") Add Message

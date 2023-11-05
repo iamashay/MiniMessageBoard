@@ -1,0 +1,26 @@
+const router = require("express").Router()
+
+const messageArr = [
+    {
+      text: "Hi there!",
+      user: "Amando",
+      added: new Date()
+    },
+    {
+      text: "Hello World!",
+      user: "Charles",
+      added: new Date()
+    }
+ ];
+
+router.post('/', (req, res) => {
+    const {text, user} = req.body
+    messageArr.push({
+        text,
+        user,
+        added: new Date()
+    })
+    res.redirect('/')
+})
+
+module.exports = {router, messageArr}
