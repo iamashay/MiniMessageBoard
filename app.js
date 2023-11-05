@@ -11,14 +11,13 @@ app.set('views', './views')
 app.set('view engine', 'pug')
 
 app.get('/', function (req, res){
-    console.log(messageArr)
     res.render('index', {messageArr})
 })
 app.use('/msg', MessageRouter)
 
 app.use((req, res, next) => {
-    createError(404)
-    next()
+    next(createError(404));
+
 })
 
 app.use((err, req, res, next) => {

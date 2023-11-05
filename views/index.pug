@@ -61,14 +61,11 @@ html
       each message in messageArr
         li
           strong= message.user
-          p= message.text
-          p
-            | Added on #{message.added.toLocaleString()}
+          p #{message.text}
+          p Added on #{message.added.toLocaleString()}
     form(action="/msg" method="POST")
       label(for="user") User:
       input(type="text" id="user" name="user" required)
       label(for="text") Message:
       input(type="text" id="text" name="text" required)
-      label(for="added") Added (Date and Time):
-      input(type="text" id="added" name="added" required)
       button(type="submit") Add Message
